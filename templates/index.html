@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} IP Scanner {% endblock %}</h1>
+    <br> 
+    <br> 
+    <br> 
+        <h2>Scan Endpoints: </h2>
+        <br> 
+        <a style="color: darkblue;" href="{{ url_for('port_scan')}}">
+            <h2>Port scan</h2>
+            <p style="color: grey;"><em>Execute :  "nmap -oX - -p 22-443 -sV $IP"</em></p>
+            <span class="badge badge-dark" > [POST]</span>
+            <span class="badge badge-light" >/port_scan </span>
+        </a>
+
+        <hr> 
+        <a style="color: darkblue;" href="{{ url_for('os_detect')}}">
+            <h2>OS detect </h2>
+            <p style="color: grey;"><em>Execute: "nmap -O $IP"</em></p>
+            <span class="badge badge-dark" > [POST]</span>
+            <span class="badge badge-light" >/os_detect </span>
+            <span class="badge badge-info" >App requires sudo </span>
+        </a>
+        <hr> 
+        
+        <br> 
+        <br> 
+        <br> 
+        <h2>Application Endpoints: </h2>
+        <br> 
+        <a style="color: darkblue;" href="{{ url_for('scanlist')}}">
+            <h2>Previous scans</h2>
+            <p style="color: grey;"><em>List of previously done scans</em></p>
+            <span class="badge badge-dark" > [GET]</span>
+            <span class="badge badge-light" >/scanlist </span>
+        </a>
+        <hr> 
+        <a style="color: darkblue;" href="{{ url_for('healthcheck')}}">
+            <h2>Healthcheck</h2>
+            <p style="color: grey;"><em>Fixed return 'We will scan the IP provided in Json POST'</em></p>
+            <span class="badge badge-dark" > [GET]</span>
+            <span class="badge badge-light" >/healthcheck </span>
+        </a>
+        <hr> 
+        <a style="color: darkblue;" href="{{ url_for('init_db')}}">
+            <h2>DB init</h2>
+            <p style="color: grey;"><em>Database init outcome</em></p>
+            <span class="badge badge-dark" > [GET]</span>
+            <span class="badge badge-light" >/init_db</span>
+        </a>
+        <hr> 
+{% endblock %}
