@@ -1,8 +1,8 @@
 # Flask IPScanner
 IPscanner in flask : as an input requires POST with json (body). In general it requires two variables:
 
-id (UUID):  identificator of the scan (can be alertId in case integration with Sycope)
-ip (IP):    ip of a target
+     id (UUID):  identificator of the scan (can be alertId in case integration with Sycope)
+     ip (IP):    ip of a target
 
 ex. json body file attached where id = str(request.json["id"]) and ip = str(request.json["clientIp"]["addressString"])
 
