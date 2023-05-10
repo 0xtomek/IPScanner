@@ -12,7 +12,7 @@ Results are returned and saved to sqlite database.
 
 ## Endpoints available
 
-###Scanning endpoints
+### Scanning endpoints
 Port scan
 Execute : "nmap -oX - -p 22-443 -sV $IP"
 [POST] /port_scan
@@ -22,7 +22,7 @@ Execute: "nmap -O $IP"
 [POST] /os_detect App requires sudo
 
 
-###Application Endpoints:
+### Application Endpoints:
 
 Previous scans
 List of previously done scans
