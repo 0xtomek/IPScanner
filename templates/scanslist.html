@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Scans already done: {% endblock %}</h1>
+    <br> 
+    {% for scan in scans %}
+        <a style="color: darkblue;" href="{{ url_for('scan', scan_id=scan['alertId']) }}">
+            <h2>Alert ID: {{ scan['alertId'] }} </h2>
+        </a>
+        <span class="badge badge-dark" >{{ scan['created'] }}</span>
+        <span class="badge badge-success" >{{ scan['scanType'] }}</span>
+        <span class="badge badge-light" >{{ scan['targetIp'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
