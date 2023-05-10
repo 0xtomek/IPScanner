@@ -35,3 +35,7 @@ Fixed return 'We will scan the IP provided in Json POST'
 DB init
 Database init outcome
 [GET] /init_db
+
+### Docker
+
+ docker build --tag ipscanner . followed by docker run -p 127.0.0.1:5000:5000 ipscanner
