@@ -1,0 +1,67 @@
+{
+    "name": "[TW] Horizontal Scan  - user script case",
+    "ruleType": "Security",
+    "ruleId": "Reconnaissance_004",
+    "tags": [
+      "60143f92-3f2b5b74-c234033d",
+      "60143f92-3f2b5b74-c234032b"
+    ],
+    "mitreTactic": "Reconnaissance",
+    "mitreTechnique": "Active Scanning",
+    "mitreId": "T1595",
+    "mitreSubtechnique": "T1595.001: Scanning IP Blocks",
+    "score": 5,
+    "interval": "1m",
+    "timeRange": "1m",
+    "nql": "src stream=\"netflow\" | lookupKeyExists(\"groups-private\", {\"cidr\": serverIp } ) | aggr _uniqueServerIps=dc(serverIp), _countSessions=count(timestamp), _firstClientCountry=first(clientCountry), _firstClientFunction=first(clientFunction), _clientIp=first(clientIp), _joinClientTCPFlags=join(clientTcpFlags, distinct=true limit=100 delimiter=\",\"), _joinIpProtocols=join(protocol, distinct=true limit=100 delimiter=\",\"), _firstClientIp=first(clientIp), _firstServerPort=first(serverPort) by clientIp as clientIp, serverPort as serverPort unwind=true | sort _uniqueServerIps desc | limit 100 | set _firstClientAsn=lookup(\"ip-as\",\"name\", {\"ip\": _clientIp} ) | limit 1000",
+    "alertKeys": [
+      "clientIp"
+    ],
+    "throttlingInMinutes": 1,
+    "definitionId": "620186a4-fa750c0b-4ab83b6c",
+    "severity": "Medium",
+    "seen": false,
+    "falsePositive": false,
+    "comment": null,
+    "alertFlagThresholdLevel": "Minor",
+    "timestamp": "10.05.23 16:39:00",
+    "id": "620186d0-fa750c0b-4ab83b86",
+    "_uniqueServerIps": 31,
+    "_joinIpProtocols": "17",
+    "_firstServerPort": 2055,
+    "_firstClientCountry": null,
+    "_firstClientIp": {
+      "address": [
+        -1408226785
+      ],
+      "version": 1,
+      "siteLocalAddress": true,
+      "intValue": -1408226785,
+      "addressString": "172.16.42.31"
+    },
+    "_firstClientFunction": [
+      "Workstations"
+    ],
+    "clientIp": {
+      "address": [
+        -1408226785
+      ],
+      "version": 1,
+      "siteLocalAddress": true,
+      "intValue": -1408226785,
+      "addressString": "172.16.42.31"
+    },
+    "_clientIp": {
+      "address": [
+        -1408226785
+      ],
+      "version": 1,
+      "siteLocalAddress": true,
+      "intValue": -1408226785,
+      "addressString": "172.16.42.31"
+    },
+    "serverPort": 2055,
+    "_countSessions": 74,
+    "_joinClientTCPFlags": "0",
+    "_firstClientAsn": null
+  }

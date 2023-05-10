@@ -89,7 +89,7 @@ def port_scan():
     scanType='Port Scan'
     if (content_type == 'application/json'):
         try :
-            ip = str(request.json["ip"])
+            ip = str(request.json["clientIp"]["addressString"])
             id = str(request.json["id"])
         except:
             return 'Missing required parameters in Post request. In json mandatory are "id" as alertID and "ip" as target scanned IP'
@@ -108,7 +108,7 @@ def os_detect():
     if (content_type == 'application/json'):
         
         try :
-            ip = str(request.json["ip"])
+            ip = str(request.json["clientIp"]["addressString"])
             id = str(request.json["id"])
         except:
             return 'Missing required parameters in Post request. In json mandatory are "id" as alertID and "ip" as target scanned IP'
