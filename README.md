@@ -12,28 +12,33 @@ Results are returned and saved to sqlite database.
 
 ### Scanning endpoints
 Port scan
-Execute : "nmap -oX - -p 22-443 -sV $IP"
-[POST] /port_scan
+
+          Execute : "nmap -oX - -p 22-443 -sV $IP"
+          [POST] /port_scan
 
 OS detect
-Execute: "nmap -O $IP"
-[POST] /os_detect App requires sudo
+
+          Execute: "nmap -O $IP"
+          [POST] /os_detect App requires sudo
 
 
 ### Application Endpoints:
 
 Previous scans
-List of previously done scans
-[GET] /scanlist
+
+          List of previously done scans
+          [GET] /scanlist
 
 Healthcheck
-Fixed return 'We will scan the IP provided in Json POST'
-[GET] /healthcheck
+
+          Fixed return 'We will scan the IP provided in Json POST'
+          [GET] /healthcheck
 
 DB init
-Database init outcome
-[GET] /init_db
+
+          Database init outcome
+          [GET] /init_db
 
 ### Docker
 
- docker build --tag ipscanner . followed by docker run -p 127.0.0.1:5000:5000 ipscanner
+           docker build --tag ipscanner . followed by docker run -p 127.0.0.1:5000:5000 ipscanner
