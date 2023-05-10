@@ -3,6 +3,7 @@ FROM alpine
 WORKDIR /srv
 RUN apk add --no-cache python3 py3-pip
 RUN apk add --no-cache nmap
+RUN apk add nmap-scripts
 RUN pip install flask
 RUN pip install python-nmap
 #RUN pip install json
