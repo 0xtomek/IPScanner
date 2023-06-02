@@ -87,7 +87,7 @@ def scan(scan_id):
 def port_scan():
     content_type = request.headers.get('Content-Type')
     scanType='Port Scan'
-    if (content_type == 'application/json' or content_type == 'application/json; charset=utf-8'):
+    if (content_type == 'application/json' or content_type == 'application/json; charset=UTF-8'):
         try :
             ip = str(request.json["clientIp"]["addressString"])
             id = str(request.json["id"])
@@ -105,7 +105,7 @@ def port_scan():
 def os_detect():
     content_type = request.headers.get('Content-Type')
     scanType='OS Scan'
-    if (content_type == 'application/json'):
+    if (content_type == 'application/json' or content_type == 'application/json; charset=UTF-8'):
         
         try :
             ip = str(request.json["clientIp"]["addressString"])
