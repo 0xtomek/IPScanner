@@ -87,7 +87,7 @@ def scan(scan_id):
 def port_scan():
     content_type = request.headers.get('Content-Type')
     scanType='Port Scan'
-    if (content_type == 'application/json'):
+    if (content_type == 'application/json' or content_type == 'application/json; charset=utf-8'):
         try :
             ip = str(request.json["clientIp"]["addressString"])
             id = str(request.json["id"])
@@ -137,4 +137,4 @@ def handle_exception(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5001)
